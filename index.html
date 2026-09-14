@@ -287,7 +287,7 @@
             keeping him comfortable while he continues to recover.
         </p>
 
-        <audio src="song.mp3" autoplay></audio>
+        <audio id="songAudio" src="song.mp3"></audio>
 
         <section class="information">
 
@@ -465,6 +465,23 @@
 
         bpmEl.textContent = 'Steady \u00B7 ' + Math.round(bpm) + ' bpm';
         requestAnimationFrame(frame);
+    })();
+</script>
+
+<script>
+    (function () {
+        var audio = document.getElementById('songAudio');
+
+        // most browsers silently block autoplay-with-sound, especially for
+        // files opened locally, so try immediately, then fall back to
+        // playing on the very first click anywhere on the page
+        audio.play().catch(function () {
+            function unlock() {
+                audio.play();
+                document.removeEventListener('click', unlock);
+            }
+            document.addEventListener('click', unlock);
+        });
     })();
 </script>
 
