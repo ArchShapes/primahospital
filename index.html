@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prima Special Hospital</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            background: #f5f5f2;
+            color: #202020;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        header {
+            padding: 28px 5vw;
+            background: #fafaf8;
+            border-bottom: 1px solid #d8d8d4;
+        }
+
+        .hospital-name {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.6px;
+        }
+
+        .hospital-status {
+            margin-top: 6px;
+            font-size: 13px;
+            color: #777;
+        }
+
+        main {
+            min-height: calc(100vh - 96px);
+            padding: 8vh 5vw;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 950px;
+        }
+
+        .label {
+            margin-bottom: 18px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #888;
+        }
+
+        h1 {
+            margin: 0;
+            max-width: 900px;
+            font-size: clamp(40px, 6vw, 72px);
+            line-height: 1.05;
+            font-weight: 500;
+            letter-spacing: -2.5px;
+        }
+
+        .description {
+            margin-top: 30px;
+            max-width: 760px;
+            font-size: 18px;
+            line-height: 1.7;
+            color: #505050;
+        }
+
+        .information {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 1px;
+            background: #d8d8d4;
+            border: 1px solid #d8d8d4;
+        }
+
+        .item {
+            padding: 24px;
+            background: #fafaf8;
+        }
+
+        .item-label {
+            margin-bottom: 9px;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: #999;
+        }
+
+        .item-value {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        .statement {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid #d8d8d4;
+            max-width: 760px;
+        }
+
+        .statement p {
+            margin: 0;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #666;
+        }
+
+        .signature {
+            margin-top: 65px;
+            padding-top: 24px;
+            border-top: 1px solid #d8d8d4;
+            width: 330px;
+        }
+
+        .signature-line {
+            width: 260px;
+            height: 45px;
+            border-bottom: 1px solid #333;
+            margin-bottom: 12px;
+            font-family: "Brush Script MT", cursive;
+            font-size: 25px;
+            font-style: italic;
+            color: #333;
+        }
+
+        .signature-name {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .signature-title {
+            margin-top: 4px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        footer {
+            margin-top: 90px;
+            padding: 24px 5vw;
+            border-top: 1px solid #d8d8d4;
+            font-size: 12px;
+            color: #999;
+        }
+
+        @media (max-width: 650px) {
+            .information {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="hospital-name">Prima Special Hospital</div>
+        <div class="hospital-status">Patient status: resting</div>
+    </header>
+
+    <main>
+        <div class="content">
+
+            <div class="label">Patient update</div>
+
+            <h1>Prima Bonga is currently tired & sleeping.</h1>
+
+            <p class="description">
+                Prima Bonga is currently resting following an accident.
+                When he wakes up, we'll let you know.
+            </p>
+
+            <section class="information">
+
+                <div class="item">
+                    <div class="item-label">Patient</div>
+                    <div class="item-value">Prima Bonga</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-label">Current condition</div>
+                    <div class="item-value">Tired and sleeping</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-label">Injuries</div>
+                    <div class="item-value">Broken arms</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-label">Incident</div>
+                    <div class="item-value">Accident — circumstances unknown</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-label">Cause of accident</div>
+                    <div class="item-value">Not identified</div>
+                </div>
+
+                <div class="item">
+                    <div class="item-label">Next update</div>
+                    <div class="item-value">When Prima Bonga wakes up</div>
+                </div>
+
+            </section>
+
+            <section class="statement">
+                <p>
+                    The hospital confirms that Prima Bonga is currently
+                    receiving care and remains asleep. The accident that
+                    caused his injuries has not been located or fully
+                    explained. Further information will be provided when
+                    available.
+                </p>
+            </section>
+
+            <section class="signature">
+                <div class="signature-line">Bonga President</div>
+                <div class="signature-name">Bonga President</div>
+                <div class="signature-title">Authorized representative</div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        Prima Special Hospital
+    </footer>
+
+</body>
+</html>
