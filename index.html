@@ -18,7 +18,7 @@
     }
 
     body {
-        background: #f5f5f2;
+        background: #f4f8f5;
         color: #202020;
         font-family: "IBM Plex Sans", -apple-system, "Segoe UI", Arial, Helvetica, sans-serif;
     }
@@ -29,7 +29,7 @@
         justify-content: space-between;
         padding: 28px 5vw;
         background: #fafaf8;
-        border-bottom: 1px solid #d8d8d4;
+        border-bottom: 1px solid #d8ded9;
         flex-wrap: wrap;
         gap: 14px;
     }
@@ -44,7 +44,7 @@
     .hospital-status {
         margin-top: 6px;
         font-size: 13px;
-        color: #b3261e;
+        color: #1f7a45;
         font-weight: 600;
         display: flex;
         align-items: center;
@@ -55,15 +55,15 @@
         width: 8px;
         height: 8px;
         border-radius: 50%;
-        background: #d0342c;
-        box-shadow: 0 0 0 0 rgba(208,52,44,0.6);
+        background: #22a35a;
+        box-shadow: 0 0 0 0 rgba(34,163,90,0.6);
         animation: dotPulse 1.1s infinite;
     }
 
     @keyframes dotPulse {
-        0%   { box-shadow: 0 0 0 0 rgba(208,52,44,0.55); }
-        70%  { box-shadow: 0 0 0 9px rgba(208,52,44,0); }
-        100% { box-shadow: 0 0 0 0 rgba(208,52,44,0); }
+        0%   { box-shadow: 0 0 0 0 rgba(34,163,90,0.5); }
+        70%  { box-shadow: 0 0 0 9px rgba(34,163,90,0); }
+        100% { box-shadow: 0 0 0 0 rgba(34,163,90,0); }
     }
 
     /* --- Heartbeat monitor badge --- */
@@ -71,10 +71,10 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        background: #fff5f4;
+        background: #f0faf3;
         border-radius: 10px;
         padding: 10px 18px;
-        box-shadow: inset 0 0 0 1px #f3c6c2;
+        box-shadow: inset 0 0 0 1px #c7ead3;
     }
 
     .monitor-text {
@@ -87,7 +87,7 @@
         font-family: "IBM Plex Mono", monospace;
         font-size: 10px;
         letter-spacing: 0.6px;
-        color: #d0342c;
+        color: #1f7a45;
         font-weight: 600;
     }
 
@@ -95,7 +95,7 @@
         font-family: "IBM Plex Mono", monospace;
         font-size: 19px;
         font-weight: 600;
-        color: #c81e13;
+        color: #17703c;
         font-variant-numeric: tabular-nums;
     }
 
@@ -128,17 +128,17 @@
         gap: 10px;
         margin-bottom: 26px;
         padding: 10px 16px;
-        background: #fdeceb;
-        border: 1px solid #f3c6c2;
+        background: #eaf9ef;
+        border: 1px solid #bfe8cc;
         border-radius: 8px;
-        color: #9c1f17;
+        color: #176b39;
         font-size: 13px;
         font-weight: 700;
         letter-spacing: 0.3px;
     }
 
     .alert-banner .status-dot {
-        background: #9c1f17;
+        background: #176b39;
     }
 
     h1 {
@@ -165,8 +165,8 @@
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1px;
-        background: #d8d8d4;
-        border: 1px solid #d8d8d4;
+        background: #d8ded9;
+        border: 1px solid #d8ded9;
     }
 
     .item {
@@ -174,8 +174,8 @@
         background: #fafaf8;
     }
 
-    .item.warn {
-        background: #fdf4f3;
+    .item.good {
+        background: #f2faf4;
     }
 
     .item-label {
@@ -191,15 +191,15 @@
         color: #333;
     }
 
-    .item-value.warn-text {
-        color: #b3261e;
+    .item-value.good-text {
+        color: #176b39;
         font-weight: 700;
     }
 
     .statement {
         margin-top: 60px;
         padding-top: 24px;
-        border-top: 1px solid #d8d8d4;
+        border-top: 1px solid #d8ded9;
         max-width: 760px;
     }
 
@@ -213,7 +213,7 @@
     .signature {
         margin-top: 65px;
         padding-top: 24px;
-        border-top: 1px solid #d8d8d4;
+        border-top: 1px solid #d8ded9;
         width: 330px;
     }
 
@@ -243,7 +243,7 @@
     footer {
         margin-top: 90px;
         padding: 24px 5vw;
-        border-top: 1px solid #d8d8d4;
+        border-top: 1px solid #d8ded9;
         font-size: 12px;
         color: #999;
     }
@@ -260,14 +260,14 @@
 <header>
     <div>
         <div class="hospital-name">Prima Special Hospital</div>
-        <div class="hospital-status"><span class="status-dot"></span>Patient status: critical monitoring</div>
+        <div class="hospital-status"><span class="status-dot"></span>Patient status: awake and stable</div>
     </div>
 
     <div class="monitor" aria-label="Heart rate monitor">
         <canvas id="ekgCanvas" width="150" height="44"></canvas>
         <div class="monitor-text">
             <span class="monitor-label">Heartbeat</span>
-            <span class="monitor-value" id="bpmValue">Low</span>
+            <span class="monitor-value" id="bpmValue">Steady</span>
         </div>
     </div>
 </header>
@@ -277,15 +277,17 @@
 
         <div class="label">Patient update</div>
 
-        <div class="alert-banner"><span class="status-dot"></span>Low heartbeat detected — under close observation</div>
+        <div class="alert-banner"><span class="status-dot"></span>Heartbeat back to normal — resting comfortably</div>
 
-        <h1>Prima Bonga is currently resting, heart rate running low.</h1>
+        <h1>Prima is woken up! He's alive.</h1>
 
         <p class="description">
-            Prima Bonga is currently resting following an accident. Vitals are being
-            monitored continuously due to a low heartbeat. We will share an update
-            as soon as his condition changes.
+            Prima Bonga has regained consciousness and is responsive. His vitals
+            have returned to a normal, steady range, and the care team is
+            keeping him comfortable while he continues to recover.
         </p>
+
+        <audio src="song.mp3" autoplay></audio>
 
         <section class="information">
 
@@ -294,19 +296,19 @@
                 <div class="item-value">Prima Bonga</div>
             </div>
 
-            <div class="item warn">
+            <div class="item good">
                 <div class="item-label">Heartbeat</div>
-                <div class="item-value warn-text">Low — being monitored</div>
+                <div class="item-value good-text">Normal — stable</div>
             </div>
 
-            <div class="item">
+            <div class="item good">
                 <div class="item-label">Current condition</div>
-                <div class="item-value">Tired and sleeping</div>
+                <div class="item-value good-text">Awake and alert</div>
             </div>
 
             <div class="item">
                 <div class="item-label">Injuries</div>
-                <div class="item-value">Broken arms</div>
+                <div class="item-value">Broken arms — in casts, healing</div>
             </div>
 
             <div class="item">
@@ -319,20 +321,20 @@
                 <div class="item-value">Not identified</div>
             </div>
 
-            <div class="item" style="grid-column: 1 / -1;">
+            <div class="item good" style="grid-column: 1 / -1;">
                 <div class="item-label">Next update</div>
-                <div class="item-value">As soon as heartbeat stabilizes or Prima Bonga wakes up</div>
+                <div class="item-value good-text">As Prima Bonga continues to recover</div>
             </div>
 
         </section>
 
         <section class="statement">
             <p>
-                The hospital confirms that Prima Bonga is currently receiving care
-                and remains asleep. Monitoring equipment has flagged a low heartbeat,
-                and staff are watching his vitals closely. The accident that caused
-                his injuries has not been located or fully explained. Further
-                information will be provided when available.
+                The hospital is glad to confirm that Prima Bonga has woken up
+                and is alert and talking with staff. His heartbeat has returned
+                to a normal range and he is resting comfortably. The
+                circumstances of the accident that caused his injuries are
+                still under review. Further updates will follow as he recovers.
             </p>
         </section>
 
@@ -366,34 +368,29 @@
         var buffer = [];
         for (var i = 0; i < W; i++) buffer.push(MID);
 
-        var bpm = 42 + Math.random() * 8;      // current instantaneous rate, low range
-        var cycleDuration = 60 / bpm;           // seconds per beat
-        var phase = 0;                          // 0..1 position within the current beat
-        var qrsHeight = 22 + Math.random() * 8; // spike amplitude, varies per beat
+        // healthy, steady range now that Prima is awake
+        var bpm = 68 + Math.random() * 10;
+        var cycleDuration = 60 / bpm;
+        var phase = 0;
+        var qrsHeight = 24 + Math.random() * 6;
         var wanderPhase = Math.random() * Math.PI * 2;
 
         function shape(u, amp) {
-            // returns displacement from baseline for cycle position u (0..1)
-            if (u < 0.10) {
-                // P wave
-                return Math.sin((u / 0.10) * Math.PI) * 2.5;
-            }
-            if (u < 0.22) return 0; // PR segment
+            if (u < 0.10) return Math.sin((u / 0.10) * Math.PI) * 2.5;
+            if (u < 0.22) return 0;
             if (u < 0.34) {
-                // QRS complex
                 var q = (u - 0.22) / 0.12;
                 if (q < 0.15) return -2 * (q / 0.15);
                 if (q < 0.45) return -2 + (amp + 2) * ((q - 0.15) / 0.30);
                 if (q < 0.70) return amp - (amp + 6) * ((q - 0.45) / 0.25);
                 return -6 + 6 * ((q - 0.70) / 0.30);
             }
-            if (u < 0.46) return 0; // ST segment
+            if (u < 0.46) return 0;
             if (u < 0.74) {
-                // T wave
                 var t = (u - 0.46) / 0.28;
                 return Math.sin(t * Math.PI) * 3.5;
             }
-            return 0; // diastolic rest
+            return 0;
         }
 
         function nextSample(dtPerPixel) {
@@ -402,23 +399,18 @@
             if (phase >= 1) {
                 phase -= 1;
 
-                // organic beat-to-beat variability, staying in a "low" range
-                bpm += (Math.random() * 8 - 4);
-                bpm = Math.max(34, Math.min(58, bpm));
+                // gentle beat-to-beat variability, healthy range, no long pauses
+                bpm += (Math.random() * 4 - 2);
+                bpm = Math.max(62, Math.min(84, bpm));
+                cycleDuration = 60 / bpm;
+                qrsHeight = 22 + Math.random() * 8;
 
-                // occasional longer pause, like a missed/irregular beat
-                var thisCycle = 60 / bpm;
-                if (Math.random() < 0.15) thisCycle *= 1.5 + Math.random() * 0.6;
-                cycleDuration = thisCycle;
-
-                qrsHeight = 20 + Math.random() * 12;
-
-                bpmEl.textContent = 'Low \u00B7 ' + Math.round(bpm) + ' bpm';
+                bpmEl.textContent = 'Steady \u00B7 ' + Math.round(bpm) + ' bpm';
             }
 
             wanderPhase += 0.0025;
-            var wander = Math.sin(wanderPhase) * 1.4;
-            var noise = (Math.random() - 0.5) * 1.1;
+            var wander = Math.sin(wanderPhase) * 1.2;
+            var noise = (Math.random() - 0.5) * 0.8;
 
             return MID - shape(phase, qrsHeight) + wander + noise;
         }
@@ -435,19 +427,17 @@
                 }
             }
 
-            // soft glow pass
             tracePath();
             ctx.lineJoin = 'round';
             ctx.lineCap = 'round';
-            ctx.strokeStyle = 'rgba(255, 45, 32, 0.45)';
+            ctx.strokeStyle = 'rgba(34, 163, 90, 0.45)';
             ctx.lineWidth = 5;
             ctx.filter = 'blur(2.5px)';
             ctx.stroke();
 
-            // crisp main line
             ctx.filter = 'none';
             tracePath();
-            ctx.strokeStyle = '#ff2d20';
+            ctx.strokeStyle = '#1f9d54';
             ctx.lineWidth = 2;
             ctx.stroke();
         }
@@ -473,7 +463,7 @@
             requestAnimationFrame(frame);
         }
 
-        bpmEl.textContent = 'Low \u00B7 ' + Math.round(bpm) + ' bpm';
+        bpmEl.textContent = 'Steady \u00B7 ' + Math.round(bpm) + ' bpm';
         requestAnimationFrame(frame);
     })();
 </script>
